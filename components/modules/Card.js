@@ -19,7 +19,7 @@ const Card = ({data}) => {
                 <Dollar/>
                 ${price}
             </div>
-            <Link href={`/menu/details/${id}`}><button className=" w-11/12 text-white rounded-lg absolute bottom-2 left-1/2 bg-green-700 -translate-x-1/2">More Details</button></Link>
+            <Link href={`/menu/${id}`}><button className=" w-11/12 text-white rounded-lg absolute bottom-2 left-1/2 bg-green-700 -translate-x-1/2">More Details</button></Link>
             
         </div>
     );
