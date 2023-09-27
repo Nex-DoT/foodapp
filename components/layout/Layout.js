@@ -5,7 +5,7 @@ import { AiOutlineHome } from "react-icons/ai";
 const Layout = ({children}) => {
     return (
         <div>
-            <header className='flex items-center justify-between w-full pl-44 pr-44 h-16 m-auto shadow-lg'>
+            <header className='flex items-center justify-between w-full pl-10 pr-10 h-16 m-auto shadow-lg'>
                 <Link href="/" className=' w-24  h-10 rounded-md flex items-center relative justify-around text-white bg-yellow-600 cursor-pointer transition-colors hover:bg-yellow-500 shadow-lg'>
                     <AiOutlineHome className=' text-3xl'/>
                     <h1>Home</h1>
