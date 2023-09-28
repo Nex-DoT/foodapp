@@ -1,9 +1,15 @@
+import DetailsPage from "@/components/template/DetailsPage";
 import { redirect } from "next/dist/server/api-utils";
+import { useRouter } from "next/router";
 
 const foodID = ({data}) => {
+    const router = useRouter();
+    if(router.isFallback){
+        return <h1>Loading...</h1>
+    }
     return (
         <div>
-            {console.log(data)}
+            <DetailsPage data={data}/>
         </div>
     );
 };
