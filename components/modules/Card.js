@@ -6,7 +6,7 @@ const Card = ({data}) => {
     const {name , price , details , discount , id } = data;
     console.log(data);
     return (
-        <div className='w-56 h-72 bg-gray-200 p-1 rounded-lg shadow-lg m-2 relative'>
+        <div className='w-56 h-72 bg-gray-200 p-1 rounded-lg shadow-lg m-7 relative'>
             <img className="rounded" src={`/images/${id}.jpeg`} alt="" />
             <div className="flex items-center justify-between p-1">
                 <h3 className=" text-lg">{name}</h3>

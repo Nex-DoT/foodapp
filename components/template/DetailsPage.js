@@ -29,23 +29,25 @@ const DetailsPage = ({data}) => {
                 <p>{introduction}</p>
             </section>
             {/* //Detail section  */}
-            <section className="mt-6">
+            <section className="bg-gray-100 p-5 rounded-md mt-2 mb-2">
                 <h2 className="text-2xl text-green-600 ">Details</h2>
                 <ul className="p-4">
                     {details.map((details , index) =>(<li key={index}>{Object.keys(details)}: {Object.values(details)}</li>))}
                 </ul>
             </section>
             {/* // ingeredients section  */}
-            <section>
+            <section className="bg-gray-100 p-5 rounded-md mt-2 mb-2">
             <h2 className="text-2xl text-green-600 ">Ingeredients</h2>
             <ul className="marker:text-green-600 list-disc p-8">
                  {ingredients.map((ingredients , index) =>(<li key={index}>{ingredients}</li>))}
             </ul>
             </section>
             {/* //Recipe section  */}
-            <section>
-                <h2 className="text-2xl text-green-600 ">Recipe</h2>
+            <section className="bg-gray-100 p-5 rounded-md">
+                <h2 className="text-2xl text-green-600 m-5">Recipe</h2>
+                 {recipe.map((recipe, index) =>(<div className={index % 2 ? "bg-green-200 flex h-auto relative":"bg-green-400 flex h-auto relative"} key={index}> <span className="w-20 h-full flex items-center justify-center text-2xl absolute top-1/2 -translate-y-1/2">{index +1}</span> <p className="pl-20 text-sm p-2">{recipe}</p></div>))}
             </section>
+            <button className=" w-full rounded-md  bg-green-700 text-white mt-5 h-10 transition-colors hover:bg-green-600 ">Add to Card</button>
         </div>
     );
 };
