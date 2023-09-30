@@ -1,9 +1,10 @@
+import CategoryPage from '@/components/template/CategoryPage';
 import React from 'react';
 
 const index = () => {
     return (
         <div>
-            category
+            <CategoryPage/>
         </div>
     );
 };
