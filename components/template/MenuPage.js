@@ -3,7 +3,7 @@ import Card from '../modules/Card';
 const MenuPage = ({data}) => {
     console.log(data);
     return (
-    <div className=' w-2/4 m-auto mt-6'>
+    <div className='m-auto max-w-6/10 mt-6'>
             <h1 className=' text-3xl'>Menu</h1>
             <br/>
             <hr className=" border-green-600 border-2"/>

@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
-
-const CategoryPage = () => {
+import Card from "../modules/Card";
+const CategoryPage = ({data}) => {
     const [query , setQuery] = useState({difficulty:"", time:""});
     const router = useRouter()
     const cheangeHandeler = (e)=>{
@@ -13,7 +13,7 @@ const CategoryPage = () => {
         router.push({pathname:"/category", query})
     }
     return (
-        <div className="m-auto w-2/4">
+        <div className="m-auto max-w-6/10" >
             <h1 className="text-2xl m-4">Category</h1>
             <br/>
             <hr className=" border-green-600 border-2"/>
@@ -31,7 +31,7 @@ const CategoryPage = () => {
                 </select>
                 <button className="border-2 p-1 rounded-md border-green-300 mt-6 ml-3" onClick={clickHandeler}> Search</button>
             </div>
-            <img className="m-auto mt-7 mb-7" src="images/search.png" alt="" />
+            {data.length? <div className="w-full flex items-center justify-between flex-wrap">{data.map(item => <Card key={item.id} data={item}/>)}</div> : <img className="m-auto mt-7 mb-20" src="images/search.png" alt="" />}
         </div>
     );
 };

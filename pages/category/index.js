@@ -1,10 +1,11 @@
 import CategoryPage from '@/components/template/CategoryPage';
 import React from 'react';
 
-const index = () => {
+const index = ({data}) => {
+    console.log(data);
     return (
         <div>
-            <CategoryPage/>
+            <CategoryPage data={data}/>
         </div>
     );
 };
@@ -18,7 +19,6 @@ export async function getServerSideProps(context){
 
     const FiltededData = data.filter((item) => {
         const difficultyFilter = item.details.filter((detail) => detail.Difficulty && detail.Difficulty === difficulty);
-        console.log(difficultyFilter);
         const timeFilter = item.details.filter((detail) => {
             const cookingTime = detail["Cooking Time"] || "";
             const [Ctime] = cookingTime.split(" ");
@@ -27,11 +27,17 @@ export async function getServerSideProps(context){
             }else if(time=== "more" && Ctime && +Ctime > 30){
                 return detail
             }
-        })
-        console.log(timeFilter);
+        });
+        if(time && difficulty && difficultyFilter.length && timeFilter.length ){
+            return item
+        }else if(!time && difficulty && difficultyFilter.length){
+            return item
+        }else if(time && !difficulty && timeFilter.length){
+            return item
+        }
     } )
 
     return {
-        props: {FiltededData}
+        props: {data :FiltededData}
     }
 }
