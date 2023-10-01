@@ -14,7 +14,7 @@ export default index;
 export async function getServerSideProps(context){
     const {query:{time , difficulty}}= context;
     console.log(time , difficulty);
-    const res = await fetch("http://localhost:4000/data");
+    const res = await fetch(`${process.env.BASE_URL}/data`);
     const data = await res.json();
 
     const FiltededData = data.filter((item) => {
