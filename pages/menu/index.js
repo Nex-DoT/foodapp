@@ -8,11 +8,11 @@ const index = ({data}) => {
 export default index;
 
 export async function getStaticProps(){
-    const res = await fetch(`${process.env.BASE_URL}/data`);
+    const res = await fetch("https://foodappdata.vercel.app/data");
     const data = await res.json();
     
     return {
         props:{data},
-        revalidate: +process.env.REVALIDATE ,
+        revalidate: 10 ,
     }
 }
